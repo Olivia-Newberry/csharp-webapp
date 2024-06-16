@@ -274,6 +274,7 @@ ServiceFabricBackup/
 
 # SQLite database files
 *.db-*
+*.db
 
 # Business Intelligence projects
 *.rdl.data
