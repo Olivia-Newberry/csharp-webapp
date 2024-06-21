@@ -22,17 +22,23 @@ Created using [this](https://www.udemy.com/course/complete-guide-to-building-an-
 
 ### Frontend
 
-- [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
-- [Axios](https://axios-http.com/)
-- [Semantic UI](https://react.semantic-ui.com/)
-- [Formik](https://formik.org/)
+- [Axios](https://axios-http.com/) for HTTP requests
+- [Date Fns](https://date-fns.org/) for date manipulation
+- [Formik](https://formik.org/) for forms
+- [React](https://reactjs.org/) for the UI
+- [React Calendar](https://www.npmjs.com/package/react-calendar) for the calendar
+- [React Date Picker](https://www.reactdatepicker.com/) for js date pickers
+- [React Router](https://reactrouter.com/) for routing
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction) for notifications
+- [Semantic UI](https://react.semantic-ui.com/) for styling
+- [TypeScript](https://www.typescriptlang.org/) for static typing
+- [Yup](https://www.npmjs.com/package/yup) for form validation
 
 ### Backend
 
-- [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
-- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
-- [MediatR](https://github.com/jbogard/MediatR/wiki)
-- [AutoMapper](https://automapper.org/)
-- [FluentValidation](https://fluentvalidation.net/)
-- [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
+- [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet) for the API
+- [AutoMapper](https://automapper.org/) for object-to-object mapping
+- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) for the database
+- [FluentValidation](https://fluentvalidation.net/) for validation
+- [MediatR](https://github.com/jbogard/MediatR/wiki) for the mediator pattern
+- [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) for real-time communication
