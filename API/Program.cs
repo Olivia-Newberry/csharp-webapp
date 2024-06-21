@@ -1,7 +1,5 @@
 using API.Extensions;
 using API.Middleware;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 

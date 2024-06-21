@@ -35,6 +35,11 @@
                 "--project",
                 "${workspaceFolder}/project.sln"
             ],
+            "options": {
+                "env": {
+                    "DOTNET_WATCH_RESTART_ON_RUDE_EDIT": "true"
+                }
+            },
             "problemMatcher": "$msCompile"
         }
     ]

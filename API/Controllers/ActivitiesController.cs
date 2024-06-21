@@ -1,7 +1,3 @@
-using Application.Activities;
-using Domain;
-using Microsoft.AspNetCore.Mvc;
-
 namespace API.Controllers
 {
     public class ActivitiesController : BaseApiController
