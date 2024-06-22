@@ -38,7 +38,9 @@ Created using [this](https://www.udemy.com/course/complete-guide-to-building-an-
 
 - [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet) for the API
 - [AutoMapper](https://automapper.org/) for object-to-object mapping
-- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) for the database
+- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) for the ORM
 - [FluentValidation](https://fluentvalidation.net/) for validation
 - [MediatR](https://github.com/jbogard/MediatR/wiki) for the mediator pattern
-- [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) for real-time communication
+- [Sqlite](https://www.sqlite.org/index.html) for the development database
+- [Swashbuckle.AspNetCore (Swagger)](https://swagger.io/) for API documentation
+- [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/) for JWT authentication

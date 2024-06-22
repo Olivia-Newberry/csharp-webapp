@@ -5,15 +5,16 @@ interface Props {
     placeholder: string;
     name: string;
     label?: string;
+    type?: string;
 }
 
-export default function MyTextInput(props: Props){
+export default function MyTextInput(props: Props) {
     const [field, meta] = useField(props.name);
 
     return (
         <Form.Field error={meta.touched && !!meta.error}>
             <label htmlFor={field.name}>{props.label}</label>
-            <input id={field.name} {...field} {...props}/>
+            <input id={field.name} {...field} {...props} />
             {meta.touched && meta.error ? (
                 <Label basic color='red'>{meta.error}</Label>
             ) : null}
