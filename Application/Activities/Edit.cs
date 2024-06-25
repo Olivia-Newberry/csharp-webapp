@@ -14,14 +14,6 @@ namespace Application.Activities
             public Activity Activity { get; set; }
         }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-            public CommandValidator()
-            {
-                RuleFor(x => x.Activity).SetValidator(new ActivityValidator());
-            }
-        }
-
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {
             private readonly DataContext _context;
@@ -30,6 +22,14 @@ namespace Application.Activities
             {
                 _mapper = mapper;
                 _context = context;
+            }
+
+            public class CommandValidator : AbstractValidator<Command>
+            {
+                public CommandValidator()
+                {
+                    RuleFor(x => x.Activity).SetValidator(new ActivityValidator());
+                }
             }
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
             {
