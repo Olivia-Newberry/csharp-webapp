@@ -64,7 +64,7 @@ export default class ProfileStore {
             runInAction(() => {
                 if (this.profile && this.profile.photos) {
                     this.profile.photos.find(p => p.isMain)!.isMain = false;
-                    this.profile.photos.find(p=> p.id === photo.id)!.isMain = true;
+                    this.profile.photos.find(p => p.id === photo.id)!.isMain = true;
                     this.profile.image = photo.url;
                 }
             })
@@ -92,6 +92,24 @@ export default class ProfileStore {
             console.log(error);
         } finally {
             runInAction(() => this.deleting = false);
+        }
+    }
+
+    updateProfile = async (profile: Partial<Profile>) => {
+        this.loading = true;
+        try {
+            await agent.Profiles.updateProfile(profile);
+            runInAction(() => {
+                if (profile.displayName && profile.displayName !==
+                    store.userStore.user?.displayName) {
+                    store.userStore.setDisplayName(profile.displayName);
+                }
+                this.profile = { ...this.profile, ...profile as Profile };
+            })
+        } catch (error) {
+            console.log(error);
+        } finally {
+            runInAction(() => this.loading = false);
         }
     }
 }
