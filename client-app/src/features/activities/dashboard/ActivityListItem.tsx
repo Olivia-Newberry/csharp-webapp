@@ -1,29 +1,48 @@
-import { Button, Icon, Item, Label, Segment } from "semantic-ui-react";
+import { Button, Icon, Image, Item, Label, Popup, PopupContent, Segment } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import ActivityListItemAttendee from "./ActivityListItemAttendee";
+import ProfileCard from "../../profiles/ProfileCard";
 
 interface Props {
     activity: Activity
 }
 
-export default function ActivityListItem({activity}: Props) {
+export default function ActivityListItem({ activity }: Props) {
 
     return (
         <Segment.Group>
             <Segment>
                 {activity.isCancelled && (
-                    <Label attached="top" color='red' content='Cancelled' style={{textAlign: 'center'}} />
+                    <Label attached="top" color='red' content='Cancelled' style={{ textAlign: 'center' }} />
                 )}
                 <Item.Group>
                     <Item>
-                        <Item.Image style={{marginBottom: 3}} size='tiny' circular src='/assets/user.png' />
+                        {
+                            <Popup
+                                hoverable
+                                key={`${activity.host?.userName}`}
+                                trigger={
+                                    <Image
+                                        style={{ marginBottom: 3 }}
+                                        as={Link} to={`/profile/${activity.host?.userName}`}
+                                        size='tiny'
+                                        circular
+                                        src={activity.host?.image || '/assets/user.png'}
+                                    />
+                                }
+                            >
+                                <PopupContent>
+                                    <ProfileCard profile={activity.host!} />
+                                </PopupContent>
+                            </Popup>
+                        }
                         <Item.Content>
                             <Item.Header as={Link} to={`/activities/${activity.id}`} >
                                 {activity.title}
                             </Item.Header>
-                            <Item.Description>Hosted by {activity.host?.displayName}</Item.Description>
+                            <Item.Description>Hosted by <Link to={`/profile/${activity.hostUsername}`}>{activity.host?.displayName}</Link></Item.Description>
                             {activity.isHost && (
                                 <Item.Description>
                                     <Label basic color='orange'>
@@ -49,7 +68,7 @@ export default function ActivityListItem({activity}: Props) {
                 </span>
             </Segment>
             <Segment secondary>
-                <ActivityListItemAttendee attendees={activity.attendees!}/>
+                <ActivityListItemAttendee activity={activity} />
             </Segment>
             <Segment clearing>
                 <span>{activity.description}</span>

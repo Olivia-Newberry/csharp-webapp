@@ -27,7 +27,9 @@ Created using [this](https://www.udemy.com/course/complete-guide-to-building-an-
 - [Formik](https://formik.org/) for forms
 - [React](https://reactjs.org/) for the UI
 - [React Calendar](https://www.npmjs.com/package/react-calendar) for the calendar
+- [React Cropper](https://react-cropper.github.io/react-cropper/) for image cropping
 - [React Date Picker](https://www.reactdatepicker.com/) for js date pickers
+- [React Dropzone](https://react-dropzone.js.org/) for file uploads
 - [React Router](https://reactrouter.com/) for routing
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction) for notifications
 - [Semantic UI](https://react.semantic-ui.com/) for styling

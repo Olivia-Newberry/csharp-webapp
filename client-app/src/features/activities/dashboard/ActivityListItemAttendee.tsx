@@ -1,22 +1,28 @@
 import { observer } from "mobx-react-lite";
 import { Image, List, Popup, PopupContent } from "semantic-ui-react";
-import { Profile } from "../../../app/models/profile";
 import { Link } from "react-router-dom";
 import ProfileCard from "../../profiles/ProfileCard";
+import { Activity } from "../../../app/models/activity";
 
 interface Props {
-    attendees: Profile[];
+    activity: Activity;
 }
 
-export default observer(function ActivityListItemAttendee({attendees}: Props) {
+export default observer(function ActivityListItemAttendee({ activity }: Props) {
+    var attendees = activity.attendees.filter(function (attendee) {
+        if (attendee.userName == activity.host?.userName) {
+            return false;
+        }
+        return true;
+    })
     return (
-        <List horizontal>
+        attendees.length > 0 ? <List horizontal>
             {attendees.map(attendee => (
                 <Popup
                     hoverable
                     key={`${attendee.userName}`}
                     trigger={
-                        <List.Item as={Link} to={`/profiles/${attendee.userName}`}>
+                        <List.Item as={Link} to={`/profile/${attendee.userName}`}>
                             <Image size='mini' circular src={attendee.image || '/assets/user.png'} />
                         </List.Item>
                     }
@@ -26,6 +32,8 @@ export default observer(function ActivityListItemAttendee({attendees}: Props) {
                     </PopupContent>
                 </Popup>
             ))}
-        </List>
+        </List> : <span>
+            {activity.isHost ? 'Encourage others to join!' : 'Be the first to join!'}
+        </span>
     )
-    })
+})

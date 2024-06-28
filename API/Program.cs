@@ -1,16 +1,19 @@
 using API.Extensions;
 using API.Middleware;
 using Domain;
+using dotenv.net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
+// Add environment details
+DotEnv.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers(opt =>
 {
     var policy = new AuthorizationPolicyBuilder()
