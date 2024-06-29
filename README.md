@@ -32,6 +32,7 @@ Created using [this](https://www.udemy.com/course/complete-guide-to-building-an-
 - [React Dropzone](https://react-dropzone.js.org/) for file uploads
 - [React Router](https://reactrouter.com/) for routing
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction) for notifications
+- [@Microsoft/SignalR](https://learn.microsoft.com/en-gb/javascript/api/%40microsoft/signalr/?view=signalr-js-latest) for websockets
 - [Semantic UI](https://react.semantic-ui.com/) for styling
 - [TypeScript](https://www.typescriptlang.org/) for static typing
 - [Yup](https://www.npmjs.com/package/yup) for form validation
