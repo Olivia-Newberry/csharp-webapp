@@ -30,6 +30,7 @@ Created using [this](https://www.udemy.com/course/complete-guide-to-building-an-
 - [React Cropper](https://react-cropper.github.io/react-cropper/) for image cropping
 - [React Date Picker](https://www.reactdatepicker.com/) for js date pickers
 - [React Dropzone](https://react-dropzone.js.org/) for file uploads
+- [React Infinite Scroller](https://www.npmjs.com/package/react-infinite-scroller) for infinite scrolling
 - [React Router](https://reactrouter.com/) for routing
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction) for notifications
 - [@Microsoft/SignalR](https://learn.microsoft.com/en-gb/javascript/api/%40microsoft/signalr/?view=signalr-js-latest) for websockets
