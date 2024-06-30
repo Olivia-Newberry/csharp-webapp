@@ -23,7 +23,9 @@ export default observer(function ProfileAbout() {
                 </Grid.Column>
                 <Grid.Column width='16'>
                     {editMode ? <ProfileEditForm setEditMode={setEditMode} /> :
-                        <span style={{ whiteSpace: 'pre-wrap' }}>{profile?.bio}</span>}
+                        <span style={{ whiteSpace: 'pre-wrap' }}>
+                            {profile?.bio ?? 'This user has not yet completed this section\n\nCheck back later!'}
+                        </span>}
                 </Grid.Column>
             </Grid>
         </TabPane>

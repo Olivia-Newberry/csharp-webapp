@@ -21,7 +21,7 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use(async response => {
-    await sleep(300);
+    await sleep(200); // simulate network delay
     return response;
 }, (error: AxiosError) => {
     const { data, status, config } = error.response as AxiosResponse;
@@ -98,6 +98,9 @@ const Profiles = {
     setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
     deletePhoto: (id: string) => requests.del(`/photos/${id}`),
     updateProfile: (profile: Partial<Profile>) => requests.put('/profiles', profile),
+    updateFollowing: (userName: string) => requests.post(`/follow/${userName}`, {}),
+    listFollowings: (userName: string, predicate: string) =>
+        requests.get<Profile[]>(`/follow/${userName}?predicate=${predicate}`),
 }
 
 const agent = {
