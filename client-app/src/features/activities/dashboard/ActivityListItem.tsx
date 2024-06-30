@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import ActivityListItemAttendee from "./ActivityListItemAttendee";
 import ProfileCard from "../../profiles/ProfileCard";
+import { observer } from "mobx-react-lite";
 
 interface Props {
     activity: Activity
 }
 
-export default function ActivityListItem({ activity }: Props) {
+export default observer(function ActivityListItem({ activity }: Props) {
 
     return (
         <Segment.Group>
@@ -83,4 +84,4 @@ export default function ActivityListItem({ activity }: Props) {
             </Segment>
         </Segment.Group>
     )
-}
+})

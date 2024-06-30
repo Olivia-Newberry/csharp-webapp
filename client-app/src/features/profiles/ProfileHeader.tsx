@@ -1,6 +1,7 @@
-import { Button, Divider, Grid, Header, Item, Reveal, Segment, Statistic } from "semantic-ui-react";
+import { Divider, Grid, Header, Item, Segment, Statistic } from "semantic-ui-react";
 import { Profile } from "../../app/models/profile";
 import { observer } from "mobx-react-lite";
+import FollowButton from "./FollowButton";
 
 interface Props {
     profile: Profile | null;
@@ -12,7 +13,6 @@ export default observer(function ProfileHeader({ profile }: Props) {
         <Segment>Oops, something went wrong</Segment>
     )
 
-    var following = true;
     return (
         <Segment>
             <Grid>
@@ -28,26 +28,14 @@ export default observer(function ProfileHeader({ profile }: Props) {
                 </Grid.Column>
                 <Grid.Column width={4}>
                     <Statistic.Group widths={2}>
-                        <Statistic label='Followers' value='5' />
-                        <Statistic label='Following' value='51' />
+                        <Statistic
+                            label={'Follower' + (profile.followersCount == 1 ? '' : 's')}
+                            value={profile.followersCount}
+                        />
+                        <Statistic label='Following' value={profile.followingCount} />
                     </Statistic.Group>
                     <Divider />
-                    <Reveal animated='move'>
-                        <Reveal.Content visible style={{ width: '100%' }}>
-                            <Button
-                                fluid
-                                color={following ? "teal" : 'red'}
-                                content={following ? 'Following' : 'Not following'} />
-                        </Reveal.Content>
-                        <Reveal.Content hidden style={{ width: '100%' }}>
-                            <Button
-                                fluid
-                                basic
-                                color={following ? 'red' : 'green'}
-                                content={following ? 'Unfollow' : 'Follow'}
-                            />
-                        </Reveal.Content>
-                    </Reveal>
+                    <FollowButton profile={profile} />
                 </Grid.Column>
             </Grid>
         </Segment>

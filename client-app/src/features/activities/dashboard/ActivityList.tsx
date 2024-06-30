@@ -2,8 +2,9 @@ import { Header } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import ActivityListItem from "./ActivityListItem";
 import { Fragment } from "react/jsx-runtime";
+import { observer } from "mobx-react-lite";
 
-export default function ActivityList() {
+export default observer(function ActivityList() {
     const { groupedActivities } = useStore().activityStore;
 
     return (
@@ -20,4 +21,4 @@ export default function ActivityList() {
             ))}
         </>
     );
-}
+})
