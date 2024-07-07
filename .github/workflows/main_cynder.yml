@@ -16,6 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install deps and build
+        run: |
+          cd client-app
+          npm install
+          npm run build
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
@@ -48,7 +59,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
-      
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
