@@ -1,1 +1,4 @@
-{}
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/4607021d-4f80-4435-8db9-1d5b03eb7276/resourceGroups/Cynder/providers/Microsoft.Web/sites/cynder",
+    "appService.deploySubpath": "API\\bin\\Publish"
+}

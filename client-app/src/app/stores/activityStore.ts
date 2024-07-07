@@ -29,7 +29,6 @@ export default class ActivityStore {
                 this.loadActivities();
             }
         )
-        this.loadActivities();
     }
 
     setPagingParams = (pagingParams: PagingParams) => {
