@@ -22,7 +22,9 @@ namespace API.Services
                 new Claim(ClaimTypes.Email, user.Email),
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("TokenKey")));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                _config["isProduction"] == "1" ? _config["TokenKey"] : Environment.GetEnvironmentVariable("TokenKey")
+            ));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor

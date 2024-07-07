@@ -3,15 +3,18 @@ using Application.Photos;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Photos
 {
     public class PhotoAccessor : IPhotoAccessor
     {
         private readonly Cloudinary _cloudinary;
-        public PhotoAccessor()
+        public PhotoAccessor(IConfiguration config)
         {
-            _cloudinary = new Cloudinary(Environment.GetEnvironmentVariable("CLOUDINARY_URL"));
+            _cloudinary = new Cloudinary(
+                config["isProduction"] == "1" ? config["CLOUDINARY_URL"] : Environment.GetEnvironmentVariable("CLOUDINARY_URL")
+            );
         }
 
         public async Task<PhotoUploadResult> AddPhoto(IFormFile file)

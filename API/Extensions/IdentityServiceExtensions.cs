@@ -26,7 +26,9 @@ namespace API.Extensions
                     {
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("TokenKey"))
+                            Encoding.UTF8.GetBytes(
+                                config["isProduction"] == "1" ? config["TokenKey"] : Environment.GetEnvironmentVariable("TokenKey")
+                            )
                         ),
                         ValidateIssuer = false,
                         ValidateAudience = false
