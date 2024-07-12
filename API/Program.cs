@@ -9,9 +9,6 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-// Add environment details
-DotEnv.Load();
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -31,6 +28,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
+    DotEnv.Load();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
