@@ -1,5 +1,7 @@
 # README
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/85ff83024fcc42c1be2cf21bea9bad56)](https://app.codacy.com/gh/Olivia-Newberry/csharp-webapp?utm_source=github.com&utm_medium=referral&utm_content=Olivia-Newberry/csharp-webapp&utm_campaign=Badge_Grade)
+
 ## Table of Contents
 
 - [Description](#description)
